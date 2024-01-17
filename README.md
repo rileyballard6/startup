@@ -20,4 +20,6 @@ Nobody likes the hassle of performance reviews with managers. The inconvenience 
 - **Database**: For the database, I imagine I will need a couple different schemas or pre-set data types. One for an employee, and one for a manager. The employee data type will be responsible for tracking who the manager is, and their answers/progress on the form. The manager data type must contain who their employees are, which gives them access to all their information as well.
 
 ## Design
+
 ![App Design](designs.jpeg)
+*Login/Register Screen, Manager Dashboard, Employee Form*
