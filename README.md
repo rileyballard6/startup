@@ -19,6 +19,8 @@ Nobody likes the hassle of performance reviews with managers. The inconvenience 
 
 - **Database**: For the database, I imagine I will need a couple different schemas or pre-set data types. One for an employee, and one for a manager. The employee data type will be responsible for tracking who the manager is, and their answers/progress on the form. The manager data type must contain who their employees are, which gives them access to all their information as well.
 
+- **WebSocket**: WebSocket technology will be used in order to give the Manager live updates on the progress of the form being filled out by the employee. The data sent to and from the WebSocket will be displayed on the manager dashboard.
+
 ## Design
 
 ![App Design](designs.jpeg)
