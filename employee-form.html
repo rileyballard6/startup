@@ -14,11 +14,28 @@
       </nav>
     </header>
     <div class="middle-dashboard">
-        <h1>Hello, {Database Login Full name}</h1>
-
+      <h1>Hello, {Database Login Full name}</h1>
+      <div class="employee-form">
+        <form action="">
+          <label for="goals">What were your goals for this period?</label>
+          <input type="text" name="goals" />
+          <label for="goal-evaluation"
+            >How would you rate your performance of those goals?</label
+          >
+          <label for="excellent">Excellent</label>
+          <input type="radio" value="Excellent" name="goal-rate" />
+          <label for="average">Average</label>
+          <input type="radio" value="Average" name="goal-rate" />
+          <label for="poor">Poor</label>
+          <input type="radio" value="Poor" name="goal-rate" />
+          <label for="next-goals">What are your goals for next period?</label>
+          <input type="text" name="next-goals">
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
     <footer>
-        <a href="https://github.com/rileyballard6/startup">Github Repository</a>
+      <a href="https://github.com/rileyballard6/startup">Github Repository</a>
     </footer>
   </body>
 </html>
