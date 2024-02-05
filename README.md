@@ -31,9 +31,7 @@ _Login/Register Screen, Manager Dashboard, Employee Form_
 
 ## HTML deliverable
 
-➡️ The following is an example of the required information for the `Startup HTML` deliverable
-
-For this deliverable I built out the structure of my application using HTML.
+This deliverable involved building the frame of the website, including index, login, register, and dashboards for a manager and employee.
 
 - **HTML pages** - 6 HTML pages that allow for login, registering, and a "dashboard" for both employee and manager.
 - **Links** - The login and register page both link to the employee form, in the real application if the user is a manager, it will route them to the manager dashboard
