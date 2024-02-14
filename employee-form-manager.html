@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/form.css">
     <title>Checkin Application</title>
-</head>
-<body>
-    <h1>{Data Base information with Employee answers to form}</h1>
-    <a href="dashboard-manager.html">Complete Review</a>
-</body>
+  </head>
+  <body>
+    <header class="header-info">
+      <h2>Check-in Application</h2>
+      <nav>
+        <a href="index.html">Log-out</a>
+      </nav>
+    </header>
+    <div class="middle-dashboard">
+      <h1>Results for: {Database employee name}</h1>
+      <div class="employee-form">
+        <form action="">
+          <label for="goals">What were your goals for this period?</label>
+          <p>{database answers}</p>
+          <label for="goal-evaluation"
+            >How would you rate your performance of those goals?</label
+          >
+          <div class="radio">
+            <p>{database answers}</p>
+        </div>
+          
+          <label for="next-goals">What are your goals for next period?</label>
+          <p>{database answers}</p>
+          <label for="manager-response">Manager Comments:</label>
+          <input type="text" name="manager-response" id="manager-response">
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <a href="https://github.com/rileyballard6/startup">Github Repository</a>
+    </footer>
+  </body>
 </html>
