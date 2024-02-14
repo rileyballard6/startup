@@ -39,7 +39,21 @@ body {
 .employee-form form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+form button {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: rgb(130, 191, 214);
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+form button:hover {
+    cursor: pointer;
+    background-color: rgb(91, 135, 152);
+
 }
 
 footer {
