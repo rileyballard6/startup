@@ -67,8 +67,25 @@ body {
     background-color: rgb(233, 233, 233);
     border-radius: 10px;
     padding: 10px;
-
     width: 100%;
+}
+
+.employee-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.employee-form a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: rgb(130, 191, 214);
+    font-weight: bold;
+    border-radius: 5px;
+}
+.employee-form a:hover {
+    background-color: rgb(108, 161, 181);
+
 }
 
 footer {
