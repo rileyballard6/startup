@@ -39,3 +39,14 @@ This deliverable involved building the frame of the website, including index, lo
 - **Images** - Image of a business meeting happening on the index.html
 - **DB/Login** - Login page created that will check the database for authentication. The database will also hold form information for the employee that the manager will be able to view.
 - **WebSocket** - The websocket will update the numbers of current forms to review and complete live.
+
+## CSS deliverable
+
+This deliverable involved styling the website to include a simple user-interface.
+
+- **Header, footer, and main content body**
+- **Navigation elements** - I removed the underline and made the background color change when you hover over them.
+- **Responsive to window resizing** - I used a lot of flex elements with columns so that when you resize the window, the boxes should change size.
+- **Application elements** - I used minimal colors in order to use whitespace. The colors that I did use were mainly light blues to match the image.
+- **Application text content** - One font used for the entire website
+- **Application images** - One image on the homepage. A clip-art of a business meeting.
