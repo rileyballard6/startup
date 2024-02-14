@@ -7,3 +7,20 @@
     align-items: center;
     justify-content: space-between;
 }
+.header-info nav {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-info nav a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header-info nav a:hover {
+    cursor: pointer;
+    background-color: rgb(215, 215, 215);
+}
