@@ -13,6 +13,7 @@ body {
     background-color: rgb(211, 221, 221);
     position: sticky;
     top: 0;
+    padding-left: 10px;
 }
 .header-info nav {
     width: 200px;
