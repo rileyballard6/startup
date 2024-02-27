@@ -44,6 +44,7 @@ body {
     }
 }
 
+
 .dashboard-information {
     display: flex;
     gap: 10px;
@@ -102,4 +103,5 @@ footer {
     align-items: center;
     gap: 20px;
     justify-content: center;
+
 }
