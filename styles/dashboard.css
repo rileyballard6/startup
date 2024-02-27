@@ -10,6 +10,8 @@ body {
     background-color: rgb(211, 221, 221);
     position: sticky;
     top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .header-info nav {
     display: flex;
@@ -34,6 +36,12 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    gap: 20px;
+}
+@media (max-width: 788px) {
+    .middle-dashboard {
+        height: 100%;
+    }
 }
 
 .dashboard-information {
@@ -42,6 +50,8 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    max-width: 775px;
+    margin: 10px;
 }
 
 .info {
@@ -54,11 +64,35 @@ body {
     height: 200px;
     border-radius: 10px;
 }
+
+@media (max-width: 527px) {
+    .info {
+        width: 100%;
+    }
+}
+
 .dashboard-information-employee {
     background-color: rgb(233, 233, 233);
-    width: 75%;
-    max-width: 800px;
+    border-radius: 10px;
     padding: 10px;
+    width: 100%;
+}
+
+.employee-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.employee-form a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: rgb(130, 191, 214);
+    font-weight: bold;
+    border-radius: 5px;
+}
+.employee-form a:hover {
+    background-color: rgb(108, 161, 181);
 }
 
 footer {
