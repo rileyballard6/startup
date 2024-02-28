@@ -42,7 +42,8 @@ window.onload = function() {
         }
         var employee_form = document.getElementById("employee-form").cloneNode(true);
         employee_form.childNodes[3].innerHTML = mock_database[i].name;
-        employee_form.id = "";
+        employee_form.childNodes[1].setAttribute("onclick", "complete_form('" + mock_database[i].name + "')") ;
+        employee_form.id = mock_database.name;
         employee_form.childNodes[5].childNodes[1].innerHTML = "Answer 1: " +  '"' + mock_database[i].goals + '"';
         employee_form.childNodes[5].childNodes[3].innerHTML = "Answer 2: " +  '"' + mock_database[i].goal_rate + '"';
         employee_form.childNodes[5].childNodes[5].innerHTML = "Answer 3: " +  '"' + mock_database[i].next_goals + '"';
@@ -50,7 +51,10 @@ window.onload = function() {
     }
     document.getElementById("review_number").innerHTML = to_review;
     document.getElementById("complete_number").innerHTML = complete;
-
+    document.getElementById("employee-form").style.display = "none";
 
 }
 
+function complete_form(name) {
+    console.log(name);
+}
