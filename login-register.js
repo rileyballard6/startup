@@ -1,3 +1,5 @@
+
+//register user and add them local storage
 function register() {
   var username_ = document.querySelector("#username-r");
   var password_ = document.querySelector("#password-r");
@@ -6,6 +8,8 @@ function register() {
   window.location.href = "employee-form.html";
 }
 
+
+//check if login info matches what is in local_storage
 function login() {
   var username__ = document.querySelector("#username");
   var password__ = document.querySelector("#password");
