@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/dashboard.css">
+    <script src="dashboard.js"></script>
     <title>Checkin Application</title>
   </head>
   <body>
@@ -15,18 +16,18 @@
       </nav>
     </header>
     <div class="middle-dashboard">
-        <h1>Welcome back, {Database Login Full name}</h1>
+        <h1 id="full_name">Welcome back, {Database Login Full name}</h1>
         <div class="dashboard-information">
             <div class="info">
-                <h3>{Database Number}</h3>
+                <h3 id="data_number">{Database Number}</h3>
                 <h3>Current Employees</h3>
             </div>
             <div class="info">
-                <h3>{Web-socket Data}</h3>
+                <h3 id="review_number">{Web-socket Data}</h3>
                 <h3>Forms to review</h3>
             </div>
             <div class="info">
-                <h3>{Web-Socket Data}</h3>
+                <h3 id="complete_number">{Web-Socket Data}</h3>
                 <h3>Forms complete</h3>
             </div>
             <div class="dashboard-information-employee">

@@ -9,12 +9,22 @@ function register() {
 }
 
 
-//check if login info matches what is in local_storage
+//check if login info matches what is in local storage
 function login() {
   var username__ = document.querySelector("#username");
   var password__ = document.querySelector("#password");
   var user = JSON.parse(localStorage.getItem("new_user"));
   if (user.username === username__.value && user.password === password__.value) {
     window.location.href = "employee-form.html";
+  }
+}
+
+//check if login info matches what is in local storage
+function manager_login() {
+  var username__ = document.querySelector("#username");
+  var password__ = document.querySelector("#password");
+  var user = JSON.parse(localStorage.getItem("new_user"));
+  if (user.username === username__.value && user.password === password__.value) {
+    window.location.href = "dashboard-manager.html";
   }
 }
