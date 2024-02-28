@@ -1,4 +1,4 @@
-
+// database that will act like the forms employees submit to review
 var mock_database = [
     {
         name: "employee1",
@@ -39,6 +39,9 @@ window.onload = function() {
         } else {
             complete++;
         }
+        var employee_form = document.getElementById("employee-form").cloneNode(true);
+        employee_form.childNodes[1].innerHTML = mock_database[i].name;
+        document.getElementById("employee-form").after(employee_form);
     }
     document.getElementById("review_number").innerHTML = to_review;
     document.getElementById("complete_number").innerHTML = complete;
