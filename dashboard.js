@@ -26,6 +26,7 @@ var mock_database = [
 
 //Insert name at top of screen from mock database
 // Go through mock database and inject numbers based on form data
+// Add names from database to the list of forms to review
 window.onload = function() {
     var user = JSON.parse(localStorage.getItem("new_user"));
     document.getElementById("full_name").innerHTML = "Welcome back, " + user.name;
@@ -40,7 +41,8 @@ window.onload = function() {
             complete++;
         }
         var employee_form = document.getElementById("employee-form").cloneNode(true);
-        employee_form.childNodes[1].innerHTML = mock_database[i].name;
+        employee_form.childNodes[3].innerHTML = mock_database[i].name;
+        employee_form.id = "";
         document.getElementById("employee-form").after(employee_form);
     }
     document.getElementById("review_number").innerHTML = to_review;

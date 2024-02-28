@@ -35,7 +35,7 @@ body {
     gap: 20px;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: fit-content;
     gap: 20px;
 }
 @media (max-width: 788px) {
@@ -80,9 +80,9 @@ body {
 }
 
 .employee-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
+    height: 200px;
+
 }
 .employee-form a {
     text-decoration: none;
@@ -91,6 +91,7 @@ body {
     background-color: rgb(130, 191, 214);
     font-weight: bold;
     border-radius: 5px;
+    float: right;
 }
 .employee-form a:hover {
     background-color: rgb(108, 161, 181);
