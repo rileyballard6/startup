@@ -7,7 +7,10 @@ function register() {
 }
 
 function login() {
-  var username_ = document.querySelector("#username");
-  var password_ = document.querySelector("#password");
-
+  var username__ = document.querySelector("#username");
+  var password__ = document.querySelector("#password");
+  var user = JSON.parse(localStorage.getItem("new_user"));
+  if (user.username === username__.value && user.password === password__.value) {
+    window.location.href = "employee-form.html";
+  }
 }

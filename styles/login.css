@@ -17,19 +17,19 @@ body {
 }
 
 
-.register-form form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     text-align: left;
 }
-.register-form form input{
+.form input{
     border: none;
     height: 40px;
     font-size: large;
 }
 
-.register-form form a {
+.form a {
     text-align: center;
     text-decoration: none;
     padding: 10px;
