@@ -50,3 +50,12 @@ This deliverable involved styling the website to include a simple user-interface
 - **Application elements** - I used minimal colors in order to use whitespace. The colors that I did use were mainly light blues to match the image.
 - **Application text content** - One font used for the entire website
 - **Application images** - One image on the homepage. A clip-art of a business meeting.
+
+## JavaScript deliverable
+
+For this deliverable I used javascript to add support for registering, and then logging in using the same user from localstorage. There is a couple mock databases that will be joined into one when we use future technologies
+
+- **login** - You can register and log in, which will add your information to localstorage. Logging in will make sure your information matches what is in localstorage.
+- **database** - The database currently holds sample employees with form answers that will be added to in the future. The manager dashboard cycles through the elements in the database and displays the data.
+- **WebSocket** - Currently the "Forms to review" and "Forms complete" numbers are updated with the database, this will be replaced with websocket that updates the numbers live when forms are completed.
+- **application logic** - The Javascript helps with form submission and displaying the data in the correct places.
