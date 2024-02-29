@@ -84,7 +84,8 @@ body {
     height: 200px;
 
 }
-.employee-form a {
+.employee-form button {
+    border: none;
     text-decoration: none;
     padding: 10px;
     color: white;
@@ -93,8 +94,9 @@ body {
     border-radius: 5px;
     float: right;
 }
-.employee-form a:hover {
+.employee-form button:hover {
     background-color: rgb(108, 161, 181);
+    cursor: pointer;
 }
 
 footer {

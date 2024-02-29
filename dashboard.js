@@ -55,6 +55,10 @@ window.onload = function() {
 
 }
 
+//set form complete to true in database
 function complete_form(name) {
-    console.log(name);
+    var user_clicked = mock_database.find(user => user.name === name)
+    user_clicked.form_complete = true;
+    console.log(user_clicked);
+    window.onload
 }
