@@ -7,6 +7,7 @@ window.onload = function() {
 
 }
 
+// gather the responses from the form and add them to the database so that the manager can see them in the real application
 function submit_form() {
     var goals_ = document.querySelector("#goals");
     var radio_buttons = document.getElementsByName("goal_rate")
@@ -18,5 +19,6 @@ function submit_form() {
         }
     }
     mock_database.push({name: user.name, goals: goals_.value, goal_rate: checked_button, next_goals: next_goals.value, form_complete: false})
-    console.log(mock_database)
+
+    document.getElementById("full_name").innerHTML = "Thank you for submitting!";
 }
