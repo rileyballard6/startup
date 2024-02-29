@@ -34,6 +34,7 @@ window.onload = function() {
     document.getElementById("data_number").innerHTML = length;
     var to_review = 0;
     var complete = 0;
+    // Will replace eventually with websocket to live update the numbers of to review and complete when forms are reviewed.
     for (var i = 0; i < length; i++) {
         if (!mock_database[i].form_complete) {
             to_review++;
@@ -59,6 +60,4 @@ window.onload = function() {
 function complete_form(name) {
     var user_clicked = mock_database.find(user => user.name === name)
     user_clicked.form_complete = true;
-    console.log(user_clicked);
-    window.onload
 }
