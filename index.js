@@ -13,10 +13,15 @@ app.use(`/api`, apiRouter);
 var mock_database = [];
 
 app.post('/register', (req,res) => {
-    var name = req.body;
+    var name = req.body.username;
     var username = req.body.username;
     var password = req.body.password;
-    console.log(name, username, password);
+    mock_database.push({
+      full_name: name,
+      username: username,
+      password: password,
+    })
+    console.log(mock_database);
     res.redirect('/')
 })
 
