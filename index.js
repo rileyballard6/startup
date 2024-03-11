@@ -79,6 +79,7 @@ app.post('/sendresponses', (req,res) => {
     next_goals: req.body.next_goals,
     form_complete: false
   })
+  res.sendFile("thankyou.html", {root: 'public'})
 
 })
 
@@ -92,8 +93,7 @@ app.post("/register", (req, res) => {
     password: password,
     manager: false,
   });
-  console.log(mock_database);
-  res.redirect("/");
+  res.sendFile("employee-form.html", {root: "public"});
 });
 
 app.use((_req, res) => {

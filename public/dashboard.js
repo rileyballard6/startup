@@ -1,6 +1,4 @@
 
-
-
 //Insert name at top of screen from mock database
 // Go through mock database and inject numbers based on form data
 // Add names from database to the list of forms to review

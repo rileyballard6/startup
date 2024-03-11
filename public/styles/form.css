@@ -57,6 +57,11 @@ body {
     background-color: rgb(91, 135, 152);
 
 }
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 footer {
     background-color: rgb(211, 221, 221);
