@@ -27,9 +27,12 @@ var mock_database = [
 //Insert name at top of screen from mock database
 // Go through mock database and inject numbers based on form data
 // Add names from database to the list of forms to review
-window.onload = function() {
+window.onload = async function() {
+    const response = await fetch("http://localhost:3000/logininfo");
+    const login = await response.json();
+    console.log(login);
     var user = JSON.parse(localStorage.getItem("new_user"));
-    document.getElementById("full_name").innerHTML = "Welcome back, " + user.name;
+    document.getElementById("full_name").innerHTML = "Welcome back, " + login.name;
     var length = mock_database.length;
     document.getElementById("data_number").innerHTML = length;
     var to_review = 0;
