@@ -59,3 +59,15 @@ For this deliverable I used javascript to add support for registering, and then 
 - **database** - The database currently holds sample employees with form answers that will be added to in the future. The manager dashboard cycles through the elements in the database and displays the data.
 - **WebSocket** - Currently the "Forms to review" and "Forms complete" numbers are updated with the database, this will be replaced with websocket that updates the numbers live when forms are completed.
 - **application logic** - The Javascript helps with form submission and displaying the data in the correct places.
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that recieve registered users, form submissions and then sends that information to the manager.
+
+- **Node.js/Express HTTP service** - Implemented
+- **Static middleware for frontend** - Implemented
+- **Calls to third party endpoints** - A call is made to a random joke api that displays after completion of the employee form.
+- **Backend service endpoints** - Service points added for registering, logging in, and sending data for the manager to see.
+- **Frontend calls service endpoints** - Manager dashboard will fetch information from backend to obtain responses submitted to the survey.
+
+Logging in to the website with username "admin" and password "password" lets you see the manager dashboard and form submissions.
