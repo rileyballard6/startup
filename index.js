@@ -30,7 +30,6 @@ app.post("/login", (req, res) => {
     )
   ) {
     res.sendFile("dashboard-manager.html", { root: "public" });
-    
   } else {
     res.sendFile("login.html", { root: "public" });
   }
