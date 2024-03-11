@@ -2,6 +2,7 @@ const { name } = require('ejs');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const e = require('express');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,24 @@ var mock_database = [
     manager: true
   }
 ];
+
+app.post('/login', (req,res) => {
+  var login_username = req.body.username;
+  var login_password = req.body.password;
+  mock_database.forEach((user) => {
+    if (login_username == user.username) {
+      if (login_password == user.password && user.manager) {
+        res.sendFile('dashboard-manager.html', { root: 'public' });
+      } else if (login_password == user.password) {
+        res.sendFile('employee-form.html', { root: 'public' });
+
+      }
+    } else {
+      console.log("user not found")
+    }
+  }) 
+
+})
 
 app.post('/register', (req,res) => {
     var name = req.body.username;
