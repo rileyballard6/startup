@@ -22,27 +22,27 @@ var responses = [
     goals: "this is my goal",
     goal_rate: "Excellent",
     next_goals: "These are my next goals",
-    form_complete: false
-},
-{
+    form_complete: false,
+  },
+  {
     name: "employee2",
     goals: "this is my goal",
     goal_rate: "Excellent",
     next_goals: "These are my next goals",
-    form_complete: false
-},
-{
+    form_complete: false,
+  },
+  {
     name: "employee3",
     goals: "this is my goal",
     goal_rate: "Excellent",
     next_goals: "These are my next goals",
-    form_complete: true
-}
-]
+    form_complete: true,
+  },
+];
 
-app.get('/logininfo', (req,res) => {
-  res.send({mock_database, responses});
-})
+app.get("/logininfo", (req, res) => {
+  res.send({ mock_database, responses });
+});
 
 app.post("/login", (req, res) => {
   var login_username = req.body.username;
@@ -50,14 +50,37 @@ app.post("/login", (req, res) => {
   if (
     mock_database.find(
       (user) =>
-        user.username === login_username && user.password == login_password
+        user.username === login_username &&
+        user.password == login_password &&
+        user.manager
     )
   ) {
     res.sendFile("dashboard-manager.html", { root: "public" });
+  } else if (
+    mock_database.find(
+      (user) =>
+        user.username === login_username &&
+        user.password == login_password
+    )
+  ) {
+    res.sendFile("employee-form.html", { root: "public" });
+
   } else {
     res.sendFile("login.html", { root: "public" });
   }
 });
+
+app.post('/sendresponses', (req,res) => {
+  console.log(req.body);
+  responses.push({
+    name: "New Employee",
+    goals: req.body.goals,
+    goal_rate: req.body.goal_rate,
+    next_goals: req.body.next_goals,
+    form_complete: false
+  })
+
+})
 
 app.post("/register", (req, res) => {
   var name = req.body.username;
