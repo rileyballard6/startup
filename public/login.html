@@ -11,13 +11,14 @@
   <body>
     <div class="register-form">
       <div class="form">
-        <h1>Enter Login Information</h1>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button onclick="login()">Login</button>
-        <button onclick="manager_login()">Manager Login</button>
+        <form action="login" method="post">
+          <h1>Enter Login Information</h1>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+          <button type="submit">Login</button>
+        </form>
       </div>
     </div>
   </body>

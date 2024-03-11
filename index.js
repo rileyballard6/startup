@@ -10,7 +10,14 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-var mock_database = [];
+var mock_database = [
+  {
+    name: "Admin",
+    username: "admin",
+    password: "password",
+    manager: true
+  }
+];
 
 app.post('/register', (req,res) => {
     var name = req.body.username;
@@ -20,6 +27,7 @@ app.post('/register', (req,res) => {
       full_name: name,
       username: username,
       password: password,
+      manager: false
     })
     console.log(mock_database);
     res.redirect('/')
