@@ -16,8 +16,32 @@ var mock_database = [
   },
 ];
 
+var responses = [
+  {
+    name: "employee1",
+    goals: "this is my goal",
+    goal_rate: "Excellent",
+    next_goals: "These are my next goals",
+    form_complete: false
+},
+{
+    name: "employee2",
+    goals: "this is my goal",
+    goal_rate: "Excellent",
+    next_goals: "These are my next goals",
+    form_complete: false
+},
+{
+    name: "employee3",
+    goals: "this is my goal",
+    goal_rate: "Excellent",
+    next_goals: "These are my next goals",
+    form_complete: true
+}
+]
+
 app.get('/logininfo', (req,res) => {
-  res.send(mock_database[0]);
+  res.send({mock_database, responses});
 })
 
 app.post("/login", (req, res) => {
