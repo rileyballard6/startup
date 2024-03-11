@@ -32,7 +32,7 @@ app.post('/login', (req,res) => {
 
       }
     } else {
-      console.log("user not found")
+      res.sendFile('login.html', { root: 'public' });
     }
   }) 
 
