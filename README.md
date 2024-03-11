@@ -26,7 +26,7 @@ Nobody likes the hassle of performance reviews with managers. The inconvenience 
 
 ## Design
 
-![App Design](designs.jpeg)
+![App Design](public/designs.jpeg)
 _Login/Register Screen, Manager Dashboard, Employee Form_
 
 ## HTML deliverable
