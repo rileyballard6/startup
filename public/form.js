@@ -1,13 +1,13 @@
 var mock_database = []
 
-var user = JSON.parse(localStorage.getItem("new_user"));
 
 window.onload = async function() {
 
     const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+    const user = await fetch("http://localhost:3000/logininfo")
+    const user_data = await user.json();
     const jsondata = await response.json();
-    document.getElementById("full_name").innerHTML = "Welcome back, " + user.name;
-
+    document.getElementById("full_name").innerHTML = "Welcome back, " + user_data.user.full_name;
     document.getElementById("joke_setup").innerHTML = jsondata.setup;
     document.getElementById("joke_punchline").innerHTML = jsondata.punchline;
 
