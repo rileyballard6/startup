@@ -95,7 +95,7 @@ app.post("/register", async (req, res) => {
     manager: false,
   };
   await DB.addUser(new_user);
-  req.session.user = user;
+  req.session.user = new_user;
   res.sendFile("employee-form.html", {root: "public"});
 });
 
