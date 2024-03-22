@@ -56,7 +56,15 @@ app.post("/login", async (req, res) => {
   var login_username = req.body.username;
   var login_password = req.body.password;
   const user = await DB.loginUser({username: login_username, password: login_password})
+  if (!user) {
+    res.sendFile("login.html", {root: "public"})
+    return;
+  }
   req.session.user = user;
+  console.log(req.session.user);
+  if (!req.session.user) {
+    res.sendFile("login.html", {root: "public"})
+  }
   if (req.session.user.manager) {
     res.sendFile("dashboard-manager.html", {root: 'public'})
   } else if (!req.session.user.manager) {
@@ -66,17 +74,15 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post('/sendresponses', (req,res) => {
-  console.log(req.body);
-  responses.push({
-    name: "New Employee",
+app.post('/sendresponses', async (req,res) => {
+  const response = {
     goals: req.body.goals,
     goal_rate: req.body.goal_rate,
     next_goals: req.body.next_goals,
     form_complete: false
-  })
+  }
+  await DB.updateResponse(req.session.user, response)
   res.sendFile("thankyou.html", {root: 'public'})
-
 })
 
 app.post("/register", async (req, res) => {

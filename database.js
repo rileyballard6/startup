@@ -21,6 +21,10 @@ async function addUser(user) {
 
 async function loginUser(user) {
   const result = await startup.findOne({username: user.username})
+  if (!result) {
+    console.log('error!')
+    return;
+  }
   if (user.password == result.password) {
     return result;
   } else {
@@ -28,7 +32,11 @@ async function loginUser(user) {
   }
 }
 
+async function updateResponse(user, response) {
+  await startup.findOneAndUpdate({username: user.username}, response)
+}
 
 
-module.exports = { addUser, loginUser };
+
+module.exports = { addUser, loginUser, updateResponse };
 
