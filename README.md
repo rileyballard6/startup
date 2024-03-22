@@ -71,3 +71,16 @@ For this deliverable I added backend endpoints that recieve registered users, fo
 - **Frontend calls service endpoints** - Manager dashboard will fetch information from backend to obtain responses submitted to the survey.
 
 Logging in to the website with username "admin" and password "password" lets you see the manager dashboard and form submissions.
+
+## DB/Login deliverable
+
+For this deliverable I created my MongoDB cluster, got rid of the mock databases, and supported login and registration.
+
+- **MongoDB Atlas database created** - Done
+- **Stores data in MongoDB** - Done
+- **User registration** - Creates a new account and stores it in database
+- **existing user** - Employees who register / login can fill out the form and their responses will be updated in the database.
+- **Use MongoDB to store credentials** - Stores user information and their reponse information.
+- **Restricts functionality** - Set a cookie/session to include information of logged in user, allowing them to access the form or dashboard.
+
+The admin dashboard is still accessible with username "admin" and password "password".
