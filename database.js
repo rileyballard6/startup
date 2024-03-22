@@ -33,7 +33,7 @@ async function loginUser(user) {
 }
 
 async function updateResponse(user, response) {
-  await startup.findOneAndUpdate({username: user.username}, response)
+  await startup.findOneAndUpdate({username: user.username}, {$set: {response}}, {upsert: true})
 }
 
 

@@ -61,7 +61,6 @@ app.post("/login", async (req, res) => {
     return;
   }
   req.session.user = user;
-  console.log(req.session.user);
   if (!req.session.user) {
     res.sendFile("login.html", {root: "public"})
   }
@@ -94,10 +93,6 @@ app.post("/register", async (req, res) => {
     username: username,
     password: password,
     manager: false,
-    goals: "",
-    goal_rate: "",
-    next_goals: "",
-    form_complete: false
   };
   await DB.addUser(new_user);
   req.session.user = user;
