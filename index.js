@@ -1,10 +1,16 @@
 const express = require("express");
 const app = express();
+const session = require('express-session');
 const bodyParser = require("body-parser");
 const DB = require('./database.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  secret: "abcdefg",
+  resave: true,
+  saveUninitialized: true
+}))
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -49,28 +55,8 @@ app.post("/login", async (req, res) => {
   var login_username = req.body.username;
   var login_password = req.body.password;
   const user = await DB.loginUser({username: login_username, password: login_password})
-  console.log(user)
-  if (
-    mock_database.find(
-      (user) =>
-        user.username === login_username &&
-        user.password == login_password &&
-        user.manager
-    )
-  ) {
-    res.sendFile("dashboard-manager.html", { root: "public" });
-  } else if (
-    mock_database.find(
-      (user) =>
-        user.username === login_username &&
-        user.password == login_password
-    )
-  ) {
-    res.sendFile("employee-form.html", { root: "public" });
-
-  } else {
-    res.sendFile("login.html", { root: "public" });
-  }
+  req.session.user = user;
+  console.log(req.session);
 });
 
 app.post('/sendresponses', (req,res) => {
