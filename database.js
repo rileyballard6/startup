@@ -19,6 +19,10 @@ async function addUser(user) {
   return result;
 }
 
+async function loginUser(user) {
+  const result = await startup.findOne({username: user.username})
+}
+
 
 
 module.exports = { addUser };
