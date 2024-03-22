@@ -45,9 +45,11 @@ app.get("/logininfo", (req, res) => {
   res.send({ mock_database, responses });
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   var login_username = req.body.username;
   var login_password = req.body.password;
+  const user = await DB.loginUser({username: login_username, password: login_password})
+  console.log(user)
   if (
     mock_database.find(
       (user) =>
