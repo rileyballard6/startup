@@ -48,7 +48,8 @@ var responses = [
 ];
 
 app.get("/logininfo", (req, res) => {
-  res.send({ mock_database, responses });
+  const user = req.session.user
+  res.send({ user, responses });
 });
 
 app.post("/login", async (req, res) => {
@@ -56,7 +57,13 @@ app.post("/login", async (req, res) => {
   var login_password = req.body.password;
   const user = await DB.loginUser({username: login_username, password: login_password})
   req.session.user = user;
-  console.log(req.session);
+  if (req.session.user.manager) {
+    res.sendFile("dashboard-manager.html", {root: 'public'})
+  } else if (!req.session.user.manager) {
+    res.sendFile("employee-form.html", {root: 'public'})
+  } else {
+    res.sendFile("login.html", {root: "public"})
+  }
 });
 
 app.post('/sendresponses', (req,res) => {
@@ -81,8 +88,13 @@ app.post("/register", async (req, res) => {
     username: username,
     password: password,
     manager: false,
+    goals: "",
+    goal_rate: "",
+    next_goals: "",
+    form_complete: false
   };
   await DB.addUser(new_user);
+  req.session.user = user;
   res.sendFile("employee-form.html", {root: "public"});
 });
 
