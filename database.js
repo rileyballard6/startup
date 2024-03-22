@@ -36,7 +36,12 @@ async function updateResponse(user, response) {
   await startup.findOneAndUpdate({username: user.username}, {$set: {response}}, {upsert: true})
 }
 
+async function getReponses() {
+  const results = startup.find({manager: false}).toArray()
+  return results;
+
+}
 
 
-module.exports = { addUser, loginUser, updateResponse };
+module.exports = { addUser, loginUser, updateResponse, getReponses };
 

@@ -47,9 +47,10 @@ var responses = [
   },
 ];
 
-app.get("/logininfo", (req, res) => {
+app.get("/logininfo", async (req, res) => {
   const user = req.session.user
-  res.send({ user, responses });
+  const results = await DB.getReponses();
+  res.send({ user, results });
 });
 
 app.post("/login", async (req, res) => {
@@ -93,6 +94,7 @@ app.post("/register", async (req, res) => {
     username: username,
     password: password,
     manager: false,
+    response: {},
   };
   await DB.addUser(new_user);
   req.session.user = new_user;
