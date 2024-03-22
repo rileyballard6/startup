@@ -84,16 +84,17 @@ app.post('/sendresponses', (req,res) => {
 
 })
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
   var name = req.body.username;
   var username = req.body.username;
   var password = req.body.password;
-  mock_database.push({
+  const new_user = {
     full_name: name,
     username: username,
     password: password,
     manager: false,
-  });
+  };
+  await DB.addUser(new_user);
   res.sendFile("employee-form.html", {root: "public"});
 });
 
