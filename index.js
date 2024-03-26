@@ -3,6 +3,7 @@ const app = express();
 const session = require('express-session');
 const bodyParser = require("body-parser");
 const DB = require('./database.js');
+const peerProxy = require('./peerProxy');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -73,6 +74,8 @@ app.use((_req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
