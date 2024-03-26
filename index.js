@@ -14,38 +14,6 @@ app.use(session({
 app.use(express.json());
 app.use(express.static("public"));
 
-var mock_database = [
-  {
-    name: "Admin",
-    username: "admin",
-    password: "password",
-    manager: true,
-  },
-];
-
-var responses = [
-  {
-    name: "employee1",
-    goals: "this is my goal",
-    goal_rate: "Excellent",
-    next_goals: "These are my next goals",
-    form_complete: false,
-  },
-  {
-    name: "employee2",
-    goals: "this is my goal",
-    goal_rate: "Excellent",
-    next_goals: "These are my next goals",
-    form_complete: false,
-  },
-  {
-    name: "employee3",
-    goals: "this is my goal",
-    goal_rate: "Excellent",
-    next_goals: "These are my next goals",
-    form_complete: true,
-  },
-];
 
 app.get("/logininfo", async (req, res) => {
   const user = req.session.user
