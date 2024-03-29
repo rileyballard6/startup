@@ -3,6 +3,7 @@
 // Go through mock database and inject numbers based on form data
 // Add names from database to the list of forms to review
 window.onload = async function() {
+    configureWebSocket();
     const response = await fetch("http://localhost:3000/logininfo");
     const jsondata = await response.json();
     console.log(jsondata);
@@ -31,5 +32,17 @@ window.onload = async function() {
     document.getElementById("review_number").innerHTML = to_review;
     document.getElementById("complete_number").innerHTML = complete;
     document.getElementById("employee-form").style.display = "none";
+
+}
+
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+        console.log("the web socket is open");
+      };
+      socket.onclose = (event) => {
+        console.log("the web socket is closed");
+      };
 
 }

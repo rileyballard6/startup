@@ -4,7 +4,7 @@ var mock_database = []
 window.onload = async function() {
 
     const response = await fetch("https://official-joke-api.appspot.com/random_joke");
-    const user = await fetch("http://localhost:3000/logininfo")
+    const user = await fetch("https://startup.cs260checkin.click/logininfo");
     const user_data = await user.json();
     const jsondata = await response.json();
     document.getElementById("full_name").innerHTML = "Welcome back, " + user_data.user.full_name;
