@@ -45,7 +45,7 @@ function configureWebSocket() {
         console.log("the web socket is closed");
       };
       socket.onmessage = async (event) => {
-        const msg = JSON.parse(await event.data.text());
+        const msg = (await event.data.text());
         console.log(msg);
     }
 

@@ -22,7 +22,7 @@ window.onload = async function() {
 // gather the responses from the form and add them to the database so that the manager can see them in the real application
 
 function sendMessage() {
-    socket.send("form submitted!!");
+    socket.send(`A new form was submitted by ${user_data.user.full_name}`);
       socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
         console.log(msg);
