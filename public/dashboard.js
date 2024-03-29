@@ -1,9 +1,20 @@
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+socket.onopen = (event) => {
+    console.log("the web socket is open");
+  };
+  socket.onclose = (event) => {
+    console.log("the web socket is closed");
+  };
+  socket.onmessage = async (event) => {
+    const msg = (await event.data.text());
+    console.log(msg);
+}
 
 //Insert name at top of screen from mock database
 // Go through mock database and inject numbers based on form data
 // Add names from database to the list of forms to review
 window.onload = async function() {
-    configureWebSocket();
     const response = await fetch("http://localhost:3000/logininfo");
     const jsondata = await response.json();
     console.log(jsondata);
@@ -35,18 +46,11 @@ window.onload = async function() {
 
 }
 
-function configureWebSocket() {
-    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-    socket.onopen = (event) => {
-        console.log("the web socket is open");
-      };
-      socket.onclose = (event) => {
-        console.log("the web socket is closed");
-      };
-      socket.onmessage = async (event) => {
-        const msg = (await event.data.text());
-        console.log(msg);
-    }
+function displayMessage(msg) {
+    document.getElementById("web-socket-message").innerHTML = msg;
+    setInterval(clearMessage(), 10000);
+}
 
+function clearMessage() {
+    document.getElementById("web-socket-message").innerHTML = "";
 }
