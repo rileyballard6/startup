@@ -84,3 +84,12 @@ For this deliverable I created my MongoDB cluster, got rid of the mock databases
 - **Restricts functionality** - Set a cookie/session to include information of logged in user, allowing them to access the form or dashboard.
 
 The admin dashboard is still accessible with username "admin" and password "password".
+
+## WebSocket deliverable
+
+For this deliverable I used webSocket to display a message on the Admin dashboard when a form is submitted in real time.
+
+- **Backend listens for WebSocket connection** - Done.
+- **Frontend makes WebSocket connection** - Done - dashboard.js and form.js
+- **Data sent over WebSocket connection** - Done - form.js sends message
+- **WebSocket data displayed** - Dashboard displays that a new form was submitted for 10 seconds, dissapears after.
