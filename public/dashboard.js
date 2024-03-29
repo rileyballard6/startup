@@ -8,6 +8,7 @@ socket.onopen = (event) => {
   };
   socket.onmessage = async (event) => {
     const msg = (await event.data.text());
+    displayMessage(msg);
     console.log(msg);
 }
 
@@ -48,7 +49,9 @@ window.onload = async function() {
 
 function displayMessage(msg) {
     document.getElementById("web-socket-message").innerHTML = msg;
-    setInterval(clearMessage(), 10000);
+    setTimeout(() => {
+        clearMessage();
+      }, 10000);
 }
 
 function clearMessage() {
