@@ -3,7 +3,7 @@ const app = express();
 const session = require('express-session');
 const bodyParser = require("body-parser");
 const DB = require('./database.js');
-const peerProxy = require('./peerProxy');
+const { peerProxy } = require('./peerProxy.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
