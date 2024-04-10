@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+}
+
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(211, 221, 221);
+  position: sticky;
+  top: 0;
+  padding-left: 10px;
+}
+.header-info nav {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-info nav a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.header-info nav a:hover {
+  cursor: pointer;
+  background-color: rgb(186, 194, 194);
+}
+
+.middle-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  height: 100vh;
+}
+.middle-info h1 {
+  font-size: 3rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.middle-info p {
+  width: 50%;
+  min-width: 300px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.middle-info img {
+  width: 45%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.middle-info a {
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  background-color: rgb(130, 191, 214);
+  font-weight: bold;
+  border-radius: 5px;
+}
+.middle-info a:hover {
+  background-color: rgb(108, 161, 181);
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+footer {
+  background-color: rgb(211, 221, 221);
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
 }
