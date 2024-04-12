@@ -1,5 +1,6 @@
 import "../form.css"
 import "../login.css"
+import { Navigate, Link } from "react-router-dom";
 
 export default function EmployeeForm({ currentUser }) {
 
@@ -17,9 +18,10 @@ export default function EmployeeForm({ currentUser }) {
         form_complete: false
       }),
     };
-    fetch("http://localhost:3000/sendresponses", requestOptions).then((response) =>
+    fetch("https://startup.cs260checkin.click/sendresponses", requestOptions).then((response) =>
     response.json()
   );
+
 
 }
 
@@ -29,7 +31,7 @@ export default function EmployeeForm({ currentUser }) {
         <header class="header-info">
           <h2>Check-in Application</h2>
           <nav>
-            <a href="index.html">Log-out</a>
+          <Link to={"/"}>Log Out</Link>
           </nav>
         </header>
         <div class="middle-dashboard">

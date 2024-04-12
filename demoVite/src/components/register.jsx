@@ -17,7 +17,7 @@ export default function Register({ sendUserToApp }) {
       }),
     };
 
-    fetch("http://localhost:3000/register", requestOptions).then((response) =>
+    fetch("https://startup.cs260checkin.click/register", requestOptions).then((response) =>
       response.json()
     );
     sendUserToApp({
