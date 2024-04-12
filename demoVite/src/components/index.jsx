@@ -1,5 +1,6 @@
 import { useState } from "react";
 import meeting from "../assets/meeting.png"
+import { Link } from "react-router-dom";
 
 import "../App.css";
 
@@ -7,12 +8,11 @@ function HomeScreen() {
 
   return (
     <>
-      <body>
         <header class="header-info">
           <h2>Check-in Application</h2>
           <nav>
-            <a href="register.html">Register</a>
-            <a href="login.html">Login</a>
+            <Link to={"/register"}>Register</Link>
+            <Link to={"/login"}>Login</Link>
           </nav>
         </header>
         <div class="middle-info">
@@ -24,15 +24,14 @@ function HomeScreen() {
             evaluations a breeze.
           </p>
           <img src={meeting} alt="business meeting" />
-          <a href="register.html">Register Today</a>
+          <Link to={"/register"}>Register Today</Link>
         </div>
-        <footer>
+        <footer className="footer">
           <p>Riley Ballard</p>
           <a href="https://github.com/rileyballard6/startup">
             Github Repository
           </a>
         </footer>
-      </body>
     </>
   );
 }
