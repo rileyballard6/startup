@@ -1,6 +1,28 @@
+import "../form.css"
 import "../login.css"
 
-export default function EmployeeForm() {
+export default function EmployeeForm({ currentUser }) {
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: currentUser.username,
+        goals: e.target.elements.goals.value,
+        goal_rate: e.target.elements.goal_rate.value,
+        next_goals: e.target.elements.next_goals.value,
+        form_complete: false
+      }),
+    };
+    fetch("http://localhost:3000/sendresponses", requestOptions).then((response) =>
+    response.json()
+  );
+
+}
+
   return (
     <>
       <body>
@@ -11,10 +33,10 @@ export default function EmployeeForm() {
           </nav>
         </header>
         <div class="middle-dashboard">
-          <h1 id="full_name">Hello, </h1>
+          <h1 id="full_name">Hello, {currentUser.username}</h1>
           <div class="employee-form">
             <div class="form-info" id="form-info">
-              <form action="/sendresponses" method="post">
+              <form onSubmit={handleSubmit}>
                 <label for="goals">What were your goals for this period?</label>
                 <input type="text" name="goals" id="goals" required />
                 <label for="goal-evaluation">
@@ -54,14 +76,14 @@ export default function EmployeeForm() {
                   id="next_goals"
                   required
                 ></input>
-                <button type="submit" onclick="sendMessage()">
+                <button type="submit">
                   Submit
                 </button>
               </form>
             </div>
           </div>
         </div>
-        <footer>
+        <footer className="footer">
           <p>Riley Ballard</p>
           <a href="https://github.com/rileyballard6/startup">
             Github Repository

@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "../login.css";
 
-export default function Register() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default function Register({ sendUserToApp }) {
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,6 +20,11 @@ export default function Register() {
     fetch("http://localhost:3000/register", requestOptions).then((response) =>
       response.json()
     );
+    sendUserToApp({
+      username: e.target.elements.username.value,
+      password: e.target.elements.password.value,
+    });
+    navigate("/form");
   }
 
   return (

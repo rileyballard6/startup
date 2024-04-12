@@ -36,13 +36,16 @@ app.post("/login", async (req, res) => {
 });
 
 app.post('/sendresponses', async (req,res) => {
+  console.log("request receieved")
+  console.log(req.session.user)
+  console.log(req.body)
   const response = {
     goals: req.body.goals,
     goal_rate: req.body.goal_rate,
     next_goals: req.body.next_goals,
     form_complete: false
   }
-  await DB.updateResponse(req.session.user, response)
+  await DB.updateResponse(req.body.username, response)
 })
 
 app.post("/register", async (req, res) => {
@@ -62,6 +65,7 @@ app.post("/register", async (req, res) => {
   };
   await DB.addUser(new_user);
   req.session.user = new_user;
+  res.send(new_user);
 });
 
 
