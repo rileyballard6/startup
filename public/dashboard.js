@@ -16,7 +16,7 @@ socket.onopen = (event) => {
 // Go through mock database and inject numbers based on form data
 // Add names from database to the list of forms to review
 window.onload = async function() {
-    const response = await fetch("http://localhost:3000/logininfo");
+    const response = await fetch("https://startup.cs260checkin.click/logininfo");
     const jsondata = await response.json();
     console.log(jsondata);
     document.getElementById("full_name").innerHTML = "Welcome back, " + jsondata.user.full_name;
