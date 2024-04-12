@@ -93,3 +93,14 @@ For this deliverable I used webSocket to display a message on the Admin dashboar
 - **Frontend makes WebSocket connection** - Done - dashboard.js and form.js
 - **Data sent over WebSocket connection** - Done - form.js sends message
 - **WebSocket data displayed** - Dashboard displays that a new form was submitted for 10 seconds, dissapears after.
+
+## React deliverable
+
+This deliverable transfers the frontend of the applcation to React. I created components for all html files and made sure to make adjustments to the backend accordingly. Components use hooks to keep track of data and pass information between eachother.
+
+- **Bundled and transpiled** - Done, I sort of messed up my file structure so I had to move files to my demoVite file, but it still deploys as normal.
+- **Components** - Pages were transfered to components. Admin Dashboard has smaller components for data to be passed to.
+- **Router** - Routing between pages. Dashboard is private can only be accessed when logged in as right user.
+- **Hooks** - UseState and UseEffect manages data and updates it.
+
+The Admin Dashboard can be reached with username "admin" and password "password".
