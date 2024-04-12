@@ -41,7 +41,7 @@ export default function Dashboard() {
             </div>
             
         </div>
-        <footer>
+        <footer className="footer">
           <p>Riley Ballard</p>
             <a href="https://github.com/rileyballard6/startup">Github Repository</a>
         </footer>
