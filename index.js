@@ -6,6 +6,12 @@ const DB = require('./database.js');
 const { peerProxy } = require('./peerProxy.js');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+})
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: "abcdefg",
@@ -14,6 +20,7 @@ app.use(session({
 }))
 app.use(express.json());
 app.use(express.static("public"));
+
 
 
 app.get("/logininfo", async (req, res) => {
@@ -26,21 +33,6 @@ app.post("/login", async (req, res) => {
   var login_username = req.body.username;
   var login_password = req.body.password;
   const user = await DB.loginUser({username: login_username, password: login_password})
-  if (!user) {
-    res.sendFile("login.html", {root: "public"})
-    return;
-  }
-  req.session.user = user;
-  if (!req.session.user) {
-    res.sendFile("login.html", {root: "public"})
-  }
-  if (req.session.user.manager) {
-    res.sendFile("dashboard-manager.html", {root: 'public'})
-  } else if (!req.session.user.manager) {
-    res.sendFile("employee-form.html", {root: 'public'})
-  } else {
-    res.sendFile("login.html", {root: "public"})
-  }
 });
 
 app.post('/sendresponses', async (req,res) => {
@@ -51,10 +43,13 @@ app.post('/sendresponses', async (req,res) => {
     form_complete: false
   }
   await DB.updateResponse(req.session.user, response)
-  res.sendFile("thankyou.html", {root: 'public'})
 })
 
 app.post("/register", async (req, res) => {
+  console.log("request receieved")
+  res.status(200);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log(req.body)
   var name = req.body.username;
   var username = req.body.username;
   var password = req.body.password;
@@ -67,12 +62,8 @@ app.post("/register", async (req, res) => {
   };
   await DB.addUser(new_user);
   req.session.user = new_user;
-  res.sendFile("employee-form.html", {root: "public"});
 });
 
-app.use((_req, res) => {
-  res.sendFile("index.html", { root: "public" });
-});
 
 const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
